@@ -1,0 +1,2 @@
+class MoodLog < ApplicationRecord
+end

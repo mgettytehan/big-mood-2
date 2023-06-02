@@ -1,0 +1,2 @@
+class Moodscale < ApplicationRecord
+end
