@@ -46,6 +46,6 @@ class MoodscalesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def moodscale_params
-      params.require(:moodscale).permit(:name, :scale_type)
+      params.require(:moodscale).permit(:name, :scale_type, :scale_items_attributes)
     end
 end
