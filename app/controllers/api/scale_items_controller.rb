@@ -1,4 +1,4 @@
-class ScaleItemsController < ApplicationController
+class Api::ScaleItemsController < ApplicationController
   before_action :set_scale_item, only: %i[ show update destroy ]
 
   # GET /scale_items

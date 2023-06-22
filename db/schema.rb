@@ -21,15 +21,15 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_02_145350) do
   end
 
   create_table "mood_logs_scale_items", id: false, force: :cascade do |t|
-    t.bigint "mood_logs_id", null: false
-    t.bigint "scale_items_id", null: false
-    t.index ["mood_logs_id"], name: "index_mood_logs_scale_items_on_mood_logs_id"
-    t.index ["scale_items_id"], name: "index_mood_logs_scale_items_on_scale_items_id"
+    t.bigint "mood_log_id", null: false
+    t.bigint "scale_item_id", null: false
+    t.index ["mood_log_id"], name: "index_mood_logs_scale_items_on_mood_log_id"
+    t.index ["scale_item_id"], name: "index_mood_logs_scale_items_on_scale_item_id"
   end
 
   create_table "moodscales", force: :cascade do |t|
     t.string "name", null: false
-    t.string "type", null: false
+    t.string "scale_type", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -43,7 +43,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_02_145350) do
     t.index ["moodscale_id"], name: "index_scale_items_on_moodscale_id"
   end
 
-  add_foreign_key "mood_logs_scale_items", "mood_logs", column: "mood_logs_id"
-  add_foreign_key "mood_logs_scale_items", "scale_items", column: "scale_items_id"
+  add_foreign_key "mood_logs_scale_items", "mood_logs"
+  add_foreign_key "mood_logs_scale_items", "scale_items"
   add_foreign_key "scale_items", "moodscales"
 end
