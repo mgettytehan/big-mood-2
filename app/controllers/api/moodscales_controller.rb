@@ -1,4 +1,4 @@
-class MoodscalesController < ApplicationController
+class Api::MoodscalesController < ApplicationController
   before_action :set_moodscale, only: %i[ show update destroy ]
 
   # GET /moodscales
@@ -18,7 +18,7 @@ class MoodscalesController < ApplicationController
     @moodscale = Moodscale.new(moodscale_params)
 
     if @moodscale.save
-      render json: @moodscale, status: :created, location: @moodscale
+      render json: @moodscale, status: :created, location: api_moodscale_url(@moodscale)
     else
       render json: @moodscale.errors, status: :unprocessable_entity
     end
@@ -46,6 +46,6 @@ class MoodscalesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def moodscale_params
-      params.require(:moodscale).permit(:name, :scale_type, :scale_items_attributes)
+      params.require(:moodscale).permit(:name, :scale_type, scale_items_attributes: [:index, :alias])
     end
 end

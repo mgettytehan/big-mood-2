@@ -1,4 +1,4 @@
-class MoodLogsController < ApplicationController
+class Api::MoodLogsController < ApplicationController
   before_action :set_mood_log, only: %i[ show update destroy ]
 
   # GET /mood_logs
@@ -18,7 +18,7 @@ class MoodLogsController < ApplicationController
     @mood_log = MoodLog.new(mood_log_params)
 
     if @mood_log.save
-      render json: @mood_log, status: :created, location: @mood_log
+      render json: @mood_log, status: :created, location: api_mood_log_url(@mood_log)
     else
       render json: @mood_log.errors, status: :unprocessable_entity
     end
@@ -46,6 +46,6 @@ class MoodLogsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def mood_log_params
-      params.require(:mood_log).permit(:notes)
+      params.require(:mood_log).permit(:notes, scale_item_ids: [])
     end
 end
