@@ -1,13 +1,224 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+@font-face {
+  font-family: 'Open Serif';
+  font-style: normal;
+  font-weight: 400;
+  src: url('./assets/fonts/OpenSerif-Book.ttf') format('truetype');
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+:root {
+  --bg-color-light: #e8e9ee;
+  --bg-color: #d1d4dd;
+  --accent-color: #9ca2c4;
+  --accent-color-dark: #7c819c;
+  --text-color: #292929;
+  --accent-text-color: #33435c;
+  --link-color: #4a6084;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+  font-size: 24px;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  margin: 0;
+}
+
+header, main, footer {
+  margin: 0 auto;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Open Serif', serif;
+  text-align: center;
+}
+
+a {
+  color: var(--link-color);
+  text-decoration: underline;
+}
+
+header {
+  padding: 15px;
+  background-color: var(--accent-color);
+  display: flex;
+  justify-content: space-between;
+  box-shadow: 0px 1px 5px grey;
+}
+
+header button {
+  background-color: var(--bg-color-light);
+  color: var(--text-color);
+}
+
+header button:hover, header button:active {
+  background-color: var(--bg-color);
+}
+
+main {
+  max-width: 1250px;
+}
+
+.warning-text {
+  font-size: 0.8em;
+  color: var(--accent-text-color);
+  text-align: center;
+}
+
+.clickable {
+  cursor: pointer;
+  text-decoration: underline;
+  color: var(--link-color);
+}
+
+.logo {
+  font-size: 2em;
+  font-family: 'Open Serif', serif;
+}
+
+.logo a {
+  color: var(--text-color);
+  text-decoration: none;
+}
+
+h1.main-header {
+  color: var(--accent-text-color);
+  font-size: 5em;
+  margin: 0.5em 0;
+  text-align: right;
+}
+
+.intro-text {
+  color: var(--accent-text-color);
+  text-align: center;
+}
+
+main {
+  padding: 15px;
+}
+
+.table-container {
+  margin: 0 auto;
+  width: 98%;
+  overflow: scroll;
+}
+
+table {
+  text-align: center;
+  margin: 20px auto;
+  border: 2px solid var(--accent-color);
+  border-collapse: collapse;
+  font-size: 0.8em;
+}
+
+.column-header, .notes {
+  text-align: left;
+}
+
+td, th {
+  min-width: 100px;
+  padding: 5px;
+  background-color: var(--bg-color-light);
+  border: 3px solid var(--accent-color);
+}
+
+tr.highlight-row:hover > * {
+  background-color: #fafafb;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  max-width: 650px;
+  margin: 0 auto;
+}
+
+form label {
+  padding: 2px 5px;
+}
+
+button, input, select, option {
+  font-size: 22px;
+  color: var(--text-color);
+}
+
+button, input[type=submit], input[type=button] {
+  border-radius: 10px;
+  border: 0;
+  padding: 0.8em 1em;
+  background-color: var(--accent-color-dark);
+  color: var(--bg-color-light);
+  margin: 5px;
+  letter-spacing: 1px;
+  transition: 150ms;
+  width: 100%;
+}
+
+button:hover, input[type=submit]:hover, input[type=button]:hover {
+  background-color: #6e7391;
+}
+
+button:active, input[type=submit]:active, input[type=button]:active {
+  background-color: #636882;
+}
+
+button.disabled, input[type=submit].disabled, input[type=button].disabled {
+  cursor: not-allowed;
+}
+
+input:not([type=submit]):not([type=button]), select, option {
+  border-radius: 5px;
+  border: 3px solid var(--accent-color);
+  padding: 0.8em 1em;
+  margin: 5px;
+  margin-bottom: 10px;
+}
+
+select, option {
+  height: 3em;
+}
+
+input[type=radio]{
+  width: 1em;
+  height: 1em;
+}
+
+input[type=color] {
+  width: 2em;
+  height: 2em;
+}
+
+.button-container {
+  text-align: center;
+}
+
+.mood-scale {
+  text-align: center;
+  max-width: 650px;
+  margin: 20px auto;
+}
+
+.scale-items {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-around;
+}
+
+.scale-item {
+  padding: 10px;
+}
+
+.warning-text {
+  color: darkred;
+}
+
+:disabled {
+  opacity: 0.7;
+}
+
+@media (min-width: 650px) {
+  h1.main-header {
+    text-align: center;
+  }
 }
