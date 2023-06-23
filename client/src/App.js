@@ -1,5 +1,4 @@
-import logo from './logo.svg';
-import { MoodLogDisplay } from './features/moodlog/MoodLogDisplay';
+import { MoodLogsDisplay } from './features/moodlogs/MoodLogsDisplay';
 
 function App() {
   return (
@@ -7,7 +6,7 @@ function App() {
       <header><div className="logo">bgm</div></header>
       <main>
         <div>Welcome, user.</div>
-        <MoodLogDisplay />
+        <MoodLogsDisplay />
       </main>
     </div>
   );

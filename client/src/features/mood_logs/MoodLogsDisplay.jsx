@@ -25,7 +25,7 @@ const historyTable = (moodLogs = []) => {
     );
 }
 
-const MoodLogDisplay = () => {
+const MoodLogsDisplay = () => {
     return (
         <div>
             <h2>Mood History</h2>
@@ -34,4 +34,4 @@ const MoodLogDisplay = () => {
     );
 };
 
-export { MoodLogDisplay };
+export { MoodLogsDisplay };
