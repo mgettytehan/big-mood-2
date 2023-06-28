@@ -1,5 +1,11 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-export const moodScaleSlice = createSlice({
+export const moodscalesSlice = createSlice({
+    name: 'moodscales',
+    initialState: [],
+    reducers: {
 
+    }
 });
+
+export default moodscalesSlice.reducer;
