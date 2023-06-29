@@ -1,4 +1,5 @@
-import { MoodLogsDisplay } from './features/moodlogs/MoodLogsDisplay';
+import { MoodLogsDisplay } from './features/mood_logs/MoodLogsDisplay';
+import { MoodscalesEditor } from './features/moodscales/MoodscalesEditor';
 
 function App() {
   return (
@@ -6,7 +7,7 @@ function App() {
       <header><div className="logo">bgm</div></header>
       <main>
         <div>Welcome, user.</div>
-        <MoodLogsDisplay />
+        <MoodscalesEditor />
       </main>
     </div>
   );

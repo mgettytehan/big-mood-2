@@ -1,15 +1,17 @@
+import { Fragment } from "react";
+
 ///PLACEHOLDER VALUE FOR TESTING
 const moodlogs = []
 
 const oneMoodLog = (moodLog = {}) => {
     return (
-        <React.Fragment key={`${moodLog.created_at}-log`}>
+        <Fragment key={`${moodLog.created_at}-log`}>
         <tr>
             <th key="empty"></th>
             <th key="notes">Notes</th>
         </tr>
         <tr><td>Moodlogs go here</td></tr>
-        </React.Fragment>
+        </Fragment>
     );
 }
 
