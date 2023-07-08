@@ -5,12 +5,12 @@ class Api::MoodscalesController < ApplicationController
   def index
     @moodscales = Moodscale.all
 
-    render json: @moodscales
+    render json: @moodscales, include: :scale_items
   end
 
   # GET /moodscales/1
   def show
-    render json: @moodscale
+    render json: @moodscale, include: :scale_items
   end
 
   # POST /moodscales
