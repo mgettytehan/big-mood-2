@@ -5,12 +5,12 @@ class Api::MoodLogsController < ApplicationController
   def index
     @mood_logs = MoodLog.all
 
-    render json: @mood_logs
+    render json: @mood_logs, include: [:scale_items => {:include => [:moodscale => {:include => :scale_items}]}]
   end
 
   # GET /mood_logs/1
   def show
-    render json: @mood_log
+    render json: @mood_log, include: [:scale_items => {:include => [:moodscale => {:include => :scale_items}]}]
   end
 
   # POST /mood_logs
