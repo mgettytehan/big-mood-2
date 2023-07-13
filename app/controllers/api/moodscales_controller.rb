@@ -35,7 +35,9 @@ class Api::MoodscalesController < ApplicationController
 
   # DELETE /moodscales/1
   def destroy
-    @moodscale.destroy
+    @moodscale.update({deleted_at: Time.current})
+
+    # @moodscale.destroy
   end
 
   private
