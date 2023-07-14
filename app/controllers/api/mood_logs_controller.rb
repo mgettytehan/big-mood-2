@@ -46,6 +46,8 @@ class Api::MoodLogsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def mood_log_params
-      params.require(:mood_log).permit(:notes, scale_item_ids: [])
+      params.require(:mood_log).permit(:notes, scale_item_ids: []).tap do |mood_log_params|
+        mood_log_params.require(:scale_item_ids)
+      end
     end
 end
