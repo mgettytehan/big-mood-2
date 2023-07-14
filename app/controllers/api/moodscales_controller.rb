@@ -48,6 +48,8 @@ class Api::MoodscalesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def moodscale_params
-      params.require(:moodscale).permit(:name, :scale_type, scale_items_attributes: [:index, :alias])
+      params.require(:moodscale).permit(:name, :scale_type, scale_items_attributes: [:index, :alias]).tap do |mood_log_params|
+        mood_log_params.require(:scale_items_attributes)
+      end
     end
 end
