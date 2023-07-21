@@ -5,12 +5,12 @@ class Api::MoodscalesController < ApplicationController
   def index
     @moodscales = Moodscale.all
 
-    render json: @moodscales
+    render json: @moodscales, include: :scale_items
   end
 
   # GET /moodscales/1
   def show
-    render json: @moodscale
+    render json: @moodscale, include: :scale_items
   end
 
   # POST /moodscales
@@ -35,7 +35,9 @@ class Api::MoodscalesController < ApplicationController
 
   # DELETE /moodscales/1
   def destroy
-    @moodscale.destroy
+    @moodscale.update({deleted_at: Time.current})
+
+    # @moodscale.destroy
   end
 
   private
@@ -46,6 +48,8 @@ class Api::MoodscalesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def moodscale_params
-      params.require(:moodscale).permit(:name, :scale_type, scale_items_attributes: [:index, :alias])
+      params.require(:moodscale).permit(:name, :scale_type, scale_items_attributes: [:index, :alias]).tap do |mood_log_params|
+        mood_log_params.require(:scale_items_attributes)
+      end
     end
 end
